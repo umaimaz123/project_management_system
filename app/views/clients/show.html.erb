@@ -1,5 +1,6 @@
 <h1>Details about client</h1>
 
+<%= image_tag(@client.image, style: "width:10%") if @client.image.present? %>
 <h3>First Name: <%= @client.first_name %></h3>
 <h3>Last Name: <%= @client.last_name %></h3>
 <h3>Home Address: <%= @client.address %></h3>
@@ -7,7 +8,6 @@
 <h3>Phone Number: <%= @client.phone %></h3>
 <h3>Website: <%= @client.website %></h3>
 <h3>Description: <%= @client.description %></h3>
-
 <%= link_to 'Back', clients_path %> |
 <%= link_to 'Delete client', client_path(@client), method: :delete, data: {confirm: 'Are you sure?'} %>
 

@@ -7,4 +7,6 @@ class Client < ApplicationRecord
                               message: 'email is invalid follow the pattern of example@gmail.com' }
  validates :phone, numericality: true,
                   length: { maximum: 12 }
+
+ has_one_attached :image
 end

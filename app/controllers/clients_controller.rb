@@ -1,46 +1,46 @@
 class ClientsController < ApplicationController
   before_action :set_client, only: [:show, :edit, :update, :destroy]
 
-    def index 
-      @clients = Client.all
+  def index 
+    @clients = Client.all
+  end
+
+  def show; end
+
+  def new
+    @client = Client.new
+  end
+
+  def create
+    @client = Client.new(client_params)
+    if @client.save
+      redirect_to clients_path, notice: 'Client details are saved.'
+    else
+      render 'new'
     end
+  end
 
-    def show; end
+  def edit; end
 
-    def new
-      @client = Client.new
+  def update
+    if @client.update(client_params)
+      redirect_to clients_path, notice: 'Client details are updated.'
+    else
+      render 'edit'
     end
+  end
 
-    def create
-      @client = Client.new(client_params)
-      if @client.save
-        redirect_to clients_path, notice: 'Client details are saved.'
-      else
-        render 'new'
-      end
-    end
+  def destroy
+    redirect_to clients_path, notice: 'Client is deleted.' if @client.destroy
+  end
 
-    def edit; end
+  private
 
-    def update
-      if @client.update(client_params)
-        redirect_to clients_path, notice: 'Client details are updated.'
-      else
-        render 'edit'
-      end
-    end
+  def set_client
+    @client = Client.find(params[:id])
+  end
 
-    def destroy
-      redirect_to clients_path, notice: 'Client is deleted.' if @client.destroy
-    end
-
-    private
-
-    def set_client
-      @client = Client.find(params[:id])
-    end
-
-    def client_params
-      params.require(:client).permit(:first_name, :last_name, :address, :email, :phone, :website, :description)
-    end
+  def client_params
+    params.require(:client).permit(:first_name, :last_name, :address, :email, :phone, :website, :description, :image)
+  end
 end
