@@ -35,14 +35,18 @@
           <%= client.description %>
         </td>
         <td>
-          <%= link_to 'Show details', client_path(client) %> |
-          <%= link_to 'Edit client details', edit_client_path(client) %> |
-          <%= link_to 'Delete client', client_path(client), method: :delete, data: {confirm: 'Are you sure?'}%>
+          <%= link_to 'Show details', client_path(client) %>
+          <% if current_user %> 
+            | <%= link_to 'Edit client details', edit_client_path(client) %> |
+            <%= link_to 'Delete client', client_path(client), method: :delete, data: {confirm: 'Are you sure?'}%>
+          <% end %>
+
         </td>
       </tr>
       
     <% end %>
 
 </table>
-
-<%= link_to 'Create new client', new_client_path %>
+<% if current_user %>
+  <%= link_to 'Create new client', new_client_path %>
+<% end %>
