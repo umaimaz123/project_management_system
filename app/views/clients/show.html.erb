@@ -1,14 +1,28 @@
-<h1>Details about client</h1>
-
-<%= image_tag(@client.image, style: "width:10%") if @client.image.present? %>
-<h3>First Name: <%= @client.first_name %></h3>
-<h3>Last Name: <%= @client.last_name %></h3>
-<h3>Home Address: <%= @client.address %></h3>
-<h3>Email: <%= @client.email %></h3>
-<h3>Phone Number: <%= @client.phone %></h3>
-<h3>Website: <%= @client.website %></h3>
-<h3>Description: <%= @client.description %></h3>
-<%= link_to 'Back', clients_path %> |
-<%= link_to 'Delete client', client_path(@client), method: :delete, data: {confirm: 'Are you sure?'} %>
-
-
+<div class="jumbotron">
+  <h1 class="display-6">Details about client</h1>
+  <hr class="my-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-md">
+        <%= image_tag(@client.image, style: "width:20%") if @client.image.present? %>
+      </div>
+      <div class="col-sm">
+        <p class="lead"> 
+          <b>First Name:</b> <%= @client.first_name %><br>
+          <b>Last Name:</b> <%= @client.last_name %><br>
+          <b>Home Address:</b> <%= @client.address %><br>
+          <b>Email:</b> <%= @client.email %><br>
+          <b>Phone Number:</b> <%= @client.phone %><br>
+          <b>Website:</b> <%= @client.website %><br>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm lead">
+        <b>Description:</b> <br><%= @client.description %>
+      </div>
+    </div>
+  </div>
+  <%= link_to 'Back', clients_path, class:"btn btn-dark" %> 
+  <%= link_to 'Delete client', client_path(@client), method: :delete, data: {confirm: 'Are you sure?'}, class:"btn btn-dark" %>
+</div>
