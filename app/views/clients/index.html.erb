@@ -22,7 +22,7 @@
         <%= client.last_name %>
       </td>
       <td>
-        <%= client.address %>
+        <%= truncate(client.address, length:10) %>
       </td>
       <td>
         <%= client.email %>
@@ -34,13 +34,13 @@
         <%= client.website %>
       </td>
       <td>
-        <%= client.description %>
+        <%= truncate(client.description, length:10) %>
       </td>
       <td>
-        <%= link_to 'Show details', client_path(client) %>
+        <%= link_to 'Show', client_path(client), class:"btn btn-dark" %>
         <% if current_user %> 
-          | <%= link_to 'Edit client details', edit_client_path(client) %> |
-          <%= link_to 'Delete client', client_path(client), method: :delete, data: {confirm: 'Are you sure?'}%>
+          <%= link_to 'Edit', edit_client_path(client), class:"btn btn-dark" %>
+          <%= link_to 'Delete', client_path(client), method: :delete, data: {confirm: 'Are you sure?'}, class:"btn btn-dark" %>
         <% end %>
 
       </td>
@@ -50,5 +50,7 @@
   </tbody>
 </table>
 <% if current_user %>
-  <%= link_to 'Create new client', new_client_path %>
+  <div class="my-1">
+    <%= link_to 'New client', new_client_path, class:"btn btn-dark" %>
+  </div>
 <% end %>
