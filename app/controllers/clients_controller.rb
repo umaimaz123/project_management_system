@@ -8,11 +8,11 @@ class ClientsController < ApplicationController
   def show; end
 
   def new
-    @client = Client.new
+    @client = current_user.clients.new
   end
 
   def create
-    @client = Client.new(client_params)
+    @client = current_user.clients.new(client_params)
     if @client.save
       redirect_to clients_path, notice: 'Client details are saved.'
     else

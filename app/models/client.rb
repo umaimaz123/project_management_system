@@ -3,10 +3,11 @@ class Client < ApplicationRecord
  validates :website, format: { with: URI.regexp,
                                 message: 'website is invalid follow the pattern of http://example@gmail.com' }
  validates :email, uniqueness: true,
-                   format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i,
+                   format: { with: /\A[^@\s]+@[^@\s]+\z/,
                               message: 'email is invalid follow the pattern of example@gmail.com' }
  validates :phone, numericality: true,
                   length: { maximum: 12 }
 
  has_one_attached :image
+ belongs_to :user
 end
