@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class VisitorsController < ApplicationController
-	def welcome; end
+  def welcome; end
 end
