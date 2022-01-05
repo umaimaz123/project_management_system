@@ -1,0 +1,15 @@
+<div class="jumbotron">
+  <h1 class="display-6">Project Details</h1>
+  <hr class="my-4">
+  <div class="container">
+    <div class="row">
+        <p class="lead"> 
+          <b>Title:</b> <%= @project.title %><br>
+          <b>Description:</b> <%= @project.description %>
+        </p>
+      </div>
+    </div>
+  </div>
+  <%= link_to 'Back', projects_path, class:"btn btn-dark" %> 
+  <%= link_to 'Delete', project_path(@project), method: :delete, data: {confirm: 'Are you sure?'}, class:"btn btn-dark" %>
+</div>
