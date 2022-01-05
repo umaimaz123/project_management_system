@@ -20,6 +20,12 @@
       <%= f.text_area :description, class:"form-control" %>
     </div>
   </div>
+  <div class="mb-3 row">
+    <%= f.label :client_id, 'Client', class: "col-sm-2 col-form-label" %></br>
+    <div class="col-sm-10">
+      <%= f.select :client_id, @clients.map { |t| [t.first_name, t.id]}, {}%>
+    </div>
+  </div>
   <p>
     <%= f.submit %>
   </p>

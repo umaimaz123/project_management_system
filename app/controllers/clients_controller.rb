@@ -7,7 +7,9 @@ class ClientsController < ApplicationController
     @clients = Client.all
   end
 
-  def show; end
+  def show
+    @projects = @client.projects
+  end
 
   def new
     @client = current_user.clients.new
@@ -34,6 +36,10 @@ class ClientsController < ApplicationController
 
   def destroy
     redirect_to clients_path, notice: 'Client is deleted.' if @client.destroy
+  end
+
+  def client_projects
+   
   end
 
   private

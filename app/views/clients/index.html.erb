@@ -44,7 +44,7 @@
         <%= client.phone %>
       </td>
       <td>
-        <%= client.website %>
+        <%= truncate(client.website, length:10) %>
       </td>
       <td>
         <%= truncate(client.description, length:10) %>
@@ -55,7 +55,6 @@
           <%= link_to 'Edit', edit_client_path(client), class:"btn btn-dark" %>
           <%= link_to 'Delete', client_path(client), method: :delete, data: {confirm: 'Are you sure?'}, class:"btn btn-dark" %>
         <% end %>
-
       </td>
     </tr>
   <% end %>
