@@ -10,6 +10,8 @@
       </div>
     </div>
   </div>
-  <%= link_to 'Back', projects_path, class:"btn btn-dark" %> 
-  <%= link_to 'Delete', project_path(@project), method: :delete, data: {confirm: 'Are you sure?'}, class:"btn btn-dark" %>
+  <%= link_to 'Back', clients_path, class:"btn btn-dark" %> 
+  <% if current_user %>
+    <%= link_to 'Delete', project_path(@project), method: :delete, data: {confirm: 'Are you sure?'}, class:"btn btn-dark" %>
+  <% end %>
 </div>
