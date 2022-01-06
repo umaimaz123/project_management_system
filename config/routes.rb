@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   root 'clients#index'
 
   resources :projects
+
+  resources :manage_users
 end
