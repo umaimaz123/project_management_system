@@ -1,7 +1,7 @@
 <div class="jumbotron">
   <h1 class="display-6">Details about client</h1>
   <div class="d-flex flex-row-reverse">
-    <% if current_user %>
+    <% if current_user.try(:admin?) %>
       <div class="p-1">
         <%= link_to 'Delete client', client_path(@client), method: :delete, data: {confirm: 'Are you sure?'}, class:"btn btn-dark" %>
       </div>
@@ -33,6 +33,7 @@
       </div>
     </div>
   </div>
+  <% if current_user.try(:admin?) %>
   <hr class="my-4">
   <h3 class="display-6">My projects</h3>
   <table class="table table-striped">
@@ -53,10 +54,14 @@
           <%= project.description %>
         </td>
         <td>
-          <%= link_to 'Show', project_path(project), class:"btn btn-dark" %>
+          <% if current_user.try(:admin?) %>
+            <%= link_to 'Show', project_path(project), class:"btn btn-dark" %>
+            <%= link_to 'Delete', project_path(project), method: :delete, data: {confirm: 'Are you sure?'}, class:"btn btn-dark" %>
+          <% end %>
         </td>
       </tr>
     <% end %>
     </tbody>
   </table>
+  <% end %>
 </div>

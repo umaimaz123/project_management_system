@@ -3,7 +3,7 @@
     <%= link_to 'Project Management App', root_path, class:"navbar-brand" %>
     
     <ul class="navbar-nav me-auto mb-2 mb-lg-0">  
-      <% if current_user %> 
+      <% if current_user.try(:admin?) %> 
       <li class="nav-item">
         <%= link_to 'All Users', manage_users_path, class:"nav-link" %>
       </li>
@@ -11,9 +11,13 @@
     </ul>
     <div class="d-flex">
       <div class="me-2">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-           
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0"> 
           <% if current_user %> 
+            <li class="nav-item text-light">
+              <div class="nav-item">
+                <%= link_to "Hello #{current_user.role} #{current_user.email.split('@')[0]}",manage_user_path(current_user), class:"nav-link" %>
+              </div>
+            </li>
             <li class="nav-item">
               <%= link_to 'Logout', destroy_user_session_path, method: :delete, class:"nav-link" %>
             </li>

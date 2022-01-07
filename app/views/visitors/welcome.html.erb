@@ -1,3 +1,15 @@
-Welcome!!
-This is first page of Project Management System
-<%= link_to 'clients', clients_path %>
+<div class="jumbotron">
+  <h1 class="display-3 d-flex align-items-center justify-content-center">Project Management System</h1>
+  <hr class="my-4">
+  <div class="container display-6">
+    <div class="row">
+      <p>Welcome on board!</p>
+      <p class="lead">We revolutionize your work with a project management system designed for all your teams.
+        Create user roles & tasks across your project team. Built for every member of the team for great software.
+      </p>
+    </div>
+  </div>
+  <% if current_user.try(:admin?) || current_user.try(:manager?) %>
+    <%= link_to 'All clients', clients_path ,class:"btn btn-dark"%>
+  <% end %>
+</div>
