@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:show, :edit, :update, :destroy]
-  before_action :set_clients, only: [:edit, :new]
+  before_action :set_project, only: %i[show edit update destroy]
+  before_action :set_clients, only: %i[edit new]
   def index
     @projects = Project.all
   end
@@ -31,7 +31,7 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
-      redirect_to clients_path, notice: 'Project is deleted' if @project.destroy
+    redirect_to clients_path, notice: 'Project is deleted' if @project.destroy
   end
 
   private
@@ -47,5 +47,4 @@ class ProjectsController < ApplicationController
   def project_params
     params.require(:project).permit(:title, :description, :client_id)
   end
-
 end

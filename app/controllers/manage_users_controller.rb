@@ -34,9 +34,7 @@ class ManageUsersController < ApplicationController
     redirect_to manage_users_path, notice: 'User is deleted.' if @user.destroy
   end
 
-  def user_projects
-   
-  end
+  def user_projects; end
 
   private
 

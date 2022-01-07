@@ -38,9 +38,7 @@ class ClientsController < ApplicationController
     redirect_to clients_path, notice: 'Client is deleted.' if @client.destroy
   end
 
-  def client_projects
-   
-  end
+  def client_projects; end
 
   private
 
