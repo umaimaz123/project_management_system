@@ -27,15 +27,11 @@
     </div>
   </div>
   <div class="mb-3 row">
-    <%= f.label :role, 'Manager', class: "col-sm-2 col-form-label" %></br>
+    <%= f.label :role, 'Role for user', class: "col-sm-2 col-form-label" %></br>
     <div class="col-sm-10">
-      <%= f.check_box :role%>
+      <%= f.select(:role, User.roles.keys.map {|role| [role.titleize,role]}) %>
     </div>
   </div>
-  <div class="mb-3 row">
-    <%= f.radio_button :autolyse, false, :checked => true %>
-  </div>
-
   <p>
     <%= f.submit %>
   </p>
