@@ -1,24 +1,12 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Ruby version 2.7.0
+* Rails version 6.0.3
 
-Things you may want to cover:
+* Installing ruby on rails on ubuntu:
+  https://www.howtoforge.com/tutorial/how-to-install-ruby-on-rails-on-ubuntu-1804-lts/
+* Install rvm:
+  https://rvm.io/rvm/install
 
-* Ruby version
+* About project: It is a first demo project for ruby to implement devise gem with some basic crud functionalities.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
